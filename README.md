@@ -1,5 +1,5 @@
 # HelloAWS
-In this tutorial we take the simple REST Api server  created in [davidcarboni/hellojava](https://github.com/davidcarboni/hellojava) and deploy it on an Amazon EC2 web server
+In this walkthrough we take the simple REST Api server created in [davidcarboni/hellojava](https://github.com/davidcarboni/hellojava) and deploy it on an Amazon EC2 web server
 > Requirements
 > - Github account
 > - AWS account
@@ -44,7 +44,7 @@ So to catch up we've created a new virtual network, added a subnet that our serv
  7. Select new keypair, think of a sensible name, and download
 
 ####3. Connect to AWS
-[Connect to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html) is the next request from Chris. Again it is really simple stuff for people used to AWS. I had problems. 
+[Connecting to your instance](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html) is the next step. Again it is really simple stuff for people used to AWS. I had problems. 
 
 This is the terminal command
 
@@ -88,13 +88,13 @@ You need to add the line
     $  sudo apt-get install maven
 
 ##3. Get hellojava up and running
-Now get our simple REST Api up and running on localhost 8080
+Now get our simple REST Api up and running on localhost 8080 using [hellojava](https://github.com/davidcarboni/hellojava)
 
     $  git clone https://github.com/davidcarboni/hellojava.git
     $  sudo apt-get install maven
 
 ##4. Setup nginx
-At present we have our fresh REST Api running on port 8080. We are lastly going to setup an nginx webserver to link up port 8080 with the outside world
+We opened up port 80 for HTTP requests during setup. We have just started our fresh REST Api running on port 8080. Now we need to link these up using a webserver nginx
 
     $  sudo apt-get install nginx
 
@@ -117,5 +117,9 @@ And add this bit to the server section
     
     $  sudo service nginx start
 
-##Finally
+## Finally
 Should be working now. Visit [your public DNS]/rest to see the result
+
+## Alternative
+We used [hellojava](https://github.com/davidcarboni/hellojava) which runs on port 8080. 
+An even simpler alternative is to use the [hellopython](https://github.com/thomasridd/hellopython) project which runs on port 5000 but doesn't require Java and Maven  
